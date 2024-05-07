@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+
+<section class="site-hero inner-page overlay" style="background-image: url(/static/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row site-hero-inner justify-content-center align-items-center">
+      <div class="col-md-10 text-center" data-aos="fade">
+        <h1 class="heading mb-3">Sign in</h1>
+        <ul class="custom-breadcrumbs mb-4">
+          <li><a href="{% url 'accounts:register' %}">Sign Up</a></li>
+          <li>&bullet;</li>
+          <li>Sign In</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a class="mouse smoothscroll" href="#next">
+    <div class="mouse-icon">
+      <span class="mouse-wheel"></span>
+    </div>
+  </a>
+</section>
+<!-- END section -->
+
+<section class="section contact-section" id="next">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+
+        {% if form.errors %}
+            
+            {% include 'form_messages.html' with errors=form.errors %}
+            
+        {% endif %}
+
+        
+        <form action="#" method="post" class="bg-white p-md-5 p-4 mb-5 border">
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label for="adults" class="font-weight-bold text-black">Email</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                {{form.username}}
+              </div>
+            </div>
+
+            <div class="col-md-12 form-group">
+              <label for="adults" class="font-weight-bold text-black">Password</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                {{form.password}}
+              </div>
+            </div>
+          </div>
+
+          
+
+          
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="submit" value="Sign In" class="btn btn-primary text-white py-3 px-5 font-weight-bold">
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <!-- <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="row">
+          <div class="col-md-10 ml-auto contact-info">
+            <p><span class="d-block">Name: </span> <span class="text-black"> {{ booking.accommodation.name }}</span></p>
+            <p><span class="d-block">Room: </span> <span class="text-black"> {{booking.room.name}}</span></p>
+            <p><span class="d-block">Email: </span> <span class="text-black"> info@yourdomain.com</span></p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+{% endblock %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<form class="mb-3" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  
+  <div class="mb-3">
+    <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+  </div>
+</form> -->

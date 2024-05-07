@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flight List</title>
+</head>
+<body>
+  <h1>Flights</h1>
+
+  <ul>
+    {% for flight in object_list %}
+      <li><a href="{% url 'flight_detail' flight.pk %}">Flight {{ flight.pk }}</a></li>
+    {% endfor %}
+  </ul>
+  
+</body>
+</html>

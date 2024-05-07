@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attractions List</title>
+</head>
+<body>
+  <h1>Attractions</h1>
+  <ul>
+    {% for attraction in object_list %}
+      <li><a href="{% url 'attraction_detail' attraction.pk %}">{{ attraction.name }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

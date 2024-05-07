@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ accommodation.name }}</title>
+</head>
+<body>
+  Hotel: {{ accommodation.name }}
+  
+  <form class="mb-3" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <div class="mb-3">
+      <button class="btn btn-primary d-grid w-100" type="submit">Check Availability</button>
+    </div>
+  </form>
+
+
+  {% if available_rooms %}
+    {% for room in available_rooms %}
+      <p>{{room.name}} - <a href="{% url 'accommodations:accommodation_booking' accommodation.pk room.pk start_date end_date %}">Book</a></p>
+    {% endfor %}
+
+  {% endif %}
+
+</html>
