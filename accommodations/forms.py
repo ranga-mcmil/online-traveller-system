@@ -17,3 +17,5 @@ class CheckAvailabilityForm(forms.Form):
         end_date = cl_data.get('end_date')
 
         return start_date, end_date
+    
+

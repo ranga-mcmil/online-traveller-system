@@ -6,11 +6,21 @@
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center" data-aos="fade">
-        <h1 class="heading mb-3">Activities</h1>
+        <h1 class="heading mb-3">
+          {% if request.GET.search %}
+            Search Results
+          {% else %}
+            Activities
+          {% endif %}
+        </h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="{% url 'recommendations:home' %}">Home</a></li>
-          <li>&bullet;</li>
-          <li>Activities</li>
+          {% if request.GET.search %}
+            <li>({{request.GET.search}})</li>
+          {% else %}
+            <li><a href="{% url 'recommendations:home' %}">Home</a></li>
+            <li>&bullet;</li>
+            <li>Activities</li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -23,6 +33,31 @@
   </a>
 </section>
 
+<section class="section bg-light pb-0">
+  <div class="container">
+
+      <div class="row check-availabilty" id="next">
+          <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+
+              <form action="#" method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                      <div class="col-md-6 mb-3 mb-lg-0 col-lg-8">
+                          <label for="checkin_date" class="font-weight-bold text-black">Search</label>
+                          <div class="field-icon-wrap">
+                              {{form.search}}
+                          </div>
+                      </div>
+                      
+                      <div class="col-md-4 col-lg-4 align-self-end">
+                          <button class="btn btn-primary btn-block text-white">Search</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
 
 <section class="section">
   <div class="container">
