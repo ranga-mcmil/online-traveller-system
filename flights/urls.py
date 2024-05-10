@@ -8,7 +8,7 @@ urlpatterns = [
     path('<int:pk>/', views.FlightDetailView.as_view(), name='flight_detail'),
     path('<int:pk>/generated-route/', views.GeneratedRouteView.as_view(), name='generated_route'),
 
-    path('<int:pk>/booking/create', views.FlightBookingCreateView.as_view(), name='book'),
-    path('<int:pk>/make-payment/<int:booking_pk>/', views.FlightBookingPaymentView.as_view(), name='activity_booking_payment'),
+    path('<int:pk>/booking/create', views.FlightBookingCreateView.as_view(), name='flight_booking'),
+    path('<int:booking_pk>/make-payment/', views.FlightBookingPaymentView.as_view(), name='flight_booking_payment'),
 
 ]

@@ -71,3 +71,11 @@ class FlightBooking(models.Model):
   status = models.CharField(max_length=50, choices=STATUS, default="PENDING")
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
+
+  def save(self, *args, **kwargs):
+    # Calculate the price based on your logic (replace with your calculation)
+    # This is an example, replace with your actual price calculation logic
+    self.price = self.route.price  # Example: Price per person * number of people
+
+    # Call the original save method to persist the data to the database
+    super().save(*args, **kwargs)

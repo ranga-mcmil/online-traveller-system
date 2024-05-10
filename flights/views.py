@@ -95,12 +95,12 @@ class GeneratedRouteView(DetailView):
 class FlightBookingCreateView(CreateView):
   model = FlightBooking
   fields = ['people']  # Fields you want users to edit
-  template_name = 'activities/activity_booking.html'  # Adjust as needed
+  template_name = 'flights/flight_booking.html'  # Adjust as needed
 
   def get_success_url(self):
     """Dynamically generate success URL with newly created booking ID."""
     booking = self.object  # Access the newly created booking object
-    return reverse_lazy('activities:flight_booking_payment', kwargs={'pk': booking.id})
+    return reverse_lazy('flights:flight_booking_payment', kwargs={'booking_pk': booking.id})
 
   def get_form(self, form_class=None):
     form = super(FlightBookingCreateView, self).get_form(form_class)
@@ -115,8 +115,6 @@ class FlightBookingCreateView(CreateView):
     form.instance.route = route
     return super().form_valid(form)
 
-      
-
 
 class FlightBookingPaymentView(FormView):
     template_name = 'accommodations/make_payment.html'
@@ -128,6 +126,30 @@ class FlightBookingPaymentView(FormView):
         kwargs = super().get_form_kwargs()
         kwargs['initial'] = {'booking': self.get_booking()}
         return kwargs
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        booking = self.get_booking()
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
+        print(booking.price)
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
+
+        context['booking'] = self.get_booking()  # Access the booking object
+        # Add other context data as needed (e.g., additional information)
+        return context
 
     def get_booking(self):
         """Retrieve the booking object based on URL parameter."""
@@ -135,6 +157,7 @@ class FlightBookingPaymentView(FormView):
         return get_object_or_404(FlightBooking, pk=booking_pk)
 
     def form_valid(self, form):
+        
         # ... (payment processing logic as before)
         phone_number = form.cleaned_data['phone_number']
         # activity_id = self.kwargs['pk']

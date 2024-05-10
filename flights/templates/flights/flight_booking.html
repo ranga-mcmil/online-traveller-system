@@ -33,14 +33,11 @@
           {% csrf_token %}
 
           <div class="row">
-            <div class="col-md-6 form-group">
-              <label class="text-black font-weight-bold" for="checkin_date">Origin</label>
-              {{form.date}}
-            </div>
-            <div class="col-md-6 form-group">
-              <label class="text-black font-weight-bold" for="checkout_date">Destination</label>
+            <div class="col-md-12 form-group">
+              <label class="text-black font-weight-bold" for="checkin_date">Number of people</label>
               {{form.people}}
             </div>
+            
           </div>
 
           <div class="row">

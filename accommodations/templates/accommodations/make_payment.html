@@ -37,7 +37,6 @@
             <div class="col-md-12 form-group">
               <label for="adults" class="font-weight-bold text-black">Ecocash Phone Number</label>
               <div class="field-icon-wrap">
-                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 {{form.phone_number}}
               </div>
             </div>
@@ -57,9 +56,8 @@
       <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
         <div class="row">
           <div class="col-md-10 ml-auto contact-info">
-            <p><span class="d-block">Name: </span> <span class="text-black"> {{ booking.accommodation.name }}</span></p>
-            <p><span class="d-block">Room: </span> <span class="text-black"> {{booking.room.name}}</span></p>
-            <p><span class="d-block">Email: </span> <span class="text-black"> info@yourdomain.com</span></p>
+            <p><span class="d-block">PRICE: </span> <span class="text-black"> $ {{booking.price}}</span></p>
+
           </div>
         </div>
       </div>
