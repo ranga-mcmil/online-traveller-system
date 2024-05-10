@@ -215,41 +215,6 @@ class AccommodationBookingView(LoginRequiredMixin, CreateView):
       form.instance.user = self.request.user
       return super().form_valid(form)
 
-# class AccommodationBookingPaymentView(TemplateResponseMixin, View):
-#     template_name = 'accommodations/make_payment.html'
-#     booking = None
-#     request = None
-
-#     def dispatch(self, request, booking_pk, *args, **kwargs):
-#       self.booking = get_object_or_404(AccomodationBooking, pk=booking_pk)
-#       self.request = request
-#       return super().dispatch(request)
-    
-#     def get(self, pk):
-#       form = PhoneNumberForm()
-#       context = {
-#         "booking": self.booking,
-#         "form": form
-#       }
-#       return self.render_to_response(context)
-    
-#     def post(self, pk):
-#       form = PhoneNumberForm(data=self.request.POST)
-
-#       if form.is_valid():
-#         phone_number = form.get_info()
-
-#         # Set booking status to booked from pending
-#         self.booking.status = "BOOKED"
-#         self.booking.save()
-
-#         Payment.objects.create(
-#           amount = self.booking.room.price,
-#           accommodation_booking=self.booking,
-#           user=self.request.user
-#         )
-    
-
 class AccommodationBookingPaymentView(LoginRequiredMixin, FormView):
     template_name = 'accommodations/make_payment.html'
     form_class = PhoneNumberForm
