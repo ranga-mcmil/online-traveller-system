@@ -54,7 +54,11 @@
                           <li><a href="{% url 'flights:flight_search' %}">Flights</a></li>
                           <li><a href="{% url 'bookings:bookings' %}">Bookings</a></li>
                           <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
-                          <li><a href="{% url 'accounts:logout' %}">Sign Out</a></li>
+
+                          <form method="post" action="{% url 'accounts:logout' %}">
+                              {% csrf_token %}
+                              <button type="submit" class="getstarted">Sign Out</button>
+                          </form>
                         {% else %}
                           <li><a href="{% url 'accounts:login' %}">Sign In</a></li>
                         {% endif %}
