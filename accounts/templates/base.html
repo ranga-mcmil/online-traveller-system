@@ -46,12 +46,19 @@
                   <div class="row full-height align-items-center">
                     <div class="col-md-6 mx-auto">
                       <ul class="list-unstyled menu">
-                        <li><a href="{% url 'recommendations:home' %}">Home</a></li>
-                        <li><a href="{% url 'accommodations:accommodation_list' %}">Accomodations</a></li>
-                        <li><a href="{% url 'activities:activity_list' %}">Activities</a></li>
-                        <li><a href="{% url 'flights:flight_search' %}">Flights</a></li>
-                        <li><a href="{% url 'bookings:bookings' %}">Bookings</a></li>
-                        <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+                        
+                        {% if user.is_authenticated %}
+                          <li><a href="{% url 'recommendations:home' %}">Home</a></li>
+                          <li><a href="{% url 'accommodations:accommodation_list' %}">Accomodations</a></li>
+                          <li><a href="{% url 'activities:activity_list' %}">Activities</a></li>
+                          <li><a href="{% url 'flights:flight_search' %}">Flights</a></li>
+                          <li><a href="{% url 'bookings:bookings' %}">Bookings</a></li>
+                          <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+                          <li><a href="{% url 'accounts:logout' %}">Sign Out</a></li>
+                        {% else %}
+                          <li><a href="{% url 'accounts:login' %}">Sign In</a></li>
+                        {% endif %}
+
 
                       </ul>
                     </div>

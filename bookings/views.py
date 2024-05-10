@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateResponseMixin, View
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from accommodations.models import AccomodationBooking
 from activities.models import ActivityBooking
 
 
 # Create your views here.
-class BookingsView(TemplateResponseMixin, View):
+class BookingsView(LoginRequiredMixin, TemplateResponseMixin, View):
     template_name = 'bookings/bookings_list.html'
 
     def get(self, request, *args, **kwargs):

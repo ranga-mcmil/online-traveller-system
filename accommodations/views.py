@@ -11,14 +11,15 @@ from accommodations.forms import CheckAvailabilityForm
 from payments.forms import PhoneNumberForm
 from payments.models import Payment
 from django.views.generic import FormView
-
 from recommendations.forms import SearchForm
 from .models import Accommodation, AccomodationBooking, Room
 from django import forms
 from payments.ecocash import make_payment
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class AccommodationListView(ListView):
+
+class AccommodationListView(LoginRequiredMixin, ListView):
   """Renders a list of all accommodations"""
   model = Accommodation
   template_name = 'accommodations/accommodation_list.html'
@@ -59,7 +60,7 @@ class AccommodationListView(ListView):
 #   template_name = 'accommodations/accommodation_detail.html'
 
 
-class AccommodationDetailView(DetailView):
+class AccommodationDetailView(LoginRequiredMixin, DetailView):
   """Renders details of a specific accommodation with availability check"""
   model = Accommodation
   template_name = 'accommodations/accommodation_detail.html'
@@ -109,7 +110,7 @@ class AccommodationDetailView(DetailView):
     return render(request, self.template_name, context)
 
 
-class CheckAvailabilityView(TemplateResponseMixin, View):
+class CheckAvailabilityView(LoginRequiredMixin, TemplateResponseMixin, View):
     template_name = 'accommodations/check_availability.html'
     accommodation = None
     request = None
@@ -159,7 +160,7 @@ class CheckAvailabilityView(TemplateResponseMixin, View):
         }
         return self.render_to_response(context)
     
-class AccommodationBookingView(CreateView):
+class AccommodationBookingView(LoginRequiredMixin, CreateView):
     model = AccomodationBooking
     fields = ["start_date", "end_date", "adults", "children", "notes"]
     success_message = f"The booking saved ."
@@ -249,11 +250,11 @@ class AccommodationBookingView(CreateView):
 #         )
     
 
-class AccommodationBookingPaymentView(FormView):
+class AccommodationBookingPaymentView(LoginRequiredMixin, FormView):
     template_name = 'accommodations/make_payment.html'
     form_class = PhoneNumberForm
     request = None
-    # success_url = reverse_lazy('activity_booking_payment_success', kwargs={'activity_id': '<activity_id>', 'booking_id': '<booking_id>'})  # Placeholder for actual URL pattern
+    success_url = reverse_lazy('recommendations:home') 
 
     def dispatch(self, request, booking_pk, *args, **kwargs):
       self.request = request
@@ -306,7 +307,7 @@ class AccommodationBookingPaymentView(FormView):
             messages.error(self.request, 'Error happened, please try again')
             return redirect(self.request.META['HTTP_REFERER'])
 
-class SearchResultsView(ListView):
+class SearchResultsView(LoginRequiredMixin, ListView):
     model = Accommodation
     template_name = 'search_results.html'
     paginate_by = 10  # Optional: Paginate results (10 per page)

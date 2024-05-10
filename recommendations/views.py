@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateResponseMixin, View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from accommodations.models import Accommodation
 from activities.models import Activity
@@ -7,7 +8,7 @@ from recommendations.forms import SearchForm
 from django.shortcuts import redirect
 
 # Create your views here.
-class HomeView(TemplateResponseMixin, View):
+class HomeView(LoginRequiredMixin, TemplateResponseMixin, View):
     template_name = 'recommendations/home.html'
     form_class = SearchForm 
 

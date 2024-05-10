@@ -15,9 +15,11 @@ from django.shortcuts import get_object_or_404
 from payments.ecocash import make_payment
 from django.contrib import messages
 from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class ActivityListView(ListView):
+
+class ActivityListView(LoginRequiredMixin, ListView):
   """Renders a list of all activity"""
   model = Activity
   template_name = 'activities/activities_list.html'
@@ -50,13 +52,13 @@ class ActivityListView(ListView):
       url = f"{request.path}?search={search_query}"  # f-string for clean URL construction
       return redirect(url)  # Redirect to the same page with the query parameter
 
-class ActivityDetailView(DetailView):
+class ActivityDetailView(LoginRequiredMixin, DetailView):
   """Renders details of a specific Activity"""
   model = Activity
   template_name = 'activities/activity_detail.html'
 
 
-class ActivityBookingCreateView(CreateView):
+class ActivityBookingCreateView(LoginRequiredMixin, CreateView):
   model = ActivityBooking
   fields = ['date', 'people']  # Fields you want users to edit
   template_name = 'activities/activity_booking.html'  # Adjust as needed
@@ -81,11 +83,11 @@ class ActivityBookingCreateView(CreateView):
     return super().form_valid(form)
   
 
-class ActivityBookingPaymentView(FormView):
+class ActivityBookingPaymentView(LoginRequiredMixin, FormView):
     template_name = 'accommodations/make_payment.html'
     form_class = PhoneNumberForm
-    # success_url = reverse_lazy('activity_booking_payment_success', kwargs={'activity_id': '<activity_id>', 'booking_id': '<booking_id>'})  # Placeholder for actual URL pattern
-
+    success_url = reverse_lazy('recommendations:home') 
+    
     def get_form_kwargs(self):
         """Inject booking object into the form's initial data."""
         kwargs = super().get_form_kwargs()

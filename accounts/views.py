@@ -5,6 +5,7 @@ from django.views.generic import UpdateView
 from accounts.models import User
 from .forms import RegistrationForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class RegistrationView(TemplateResponseMixin, View):
@@ -26,7 +27,7 @@ class RegistrationView(TemplateResponseMixin, View):
         context = {'form': form}
         return self.render_to_response(context)
     
-class PasswordChangeView(PasswordChangeView):
+class PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     form_class = PasswordChangeForm
     template_name = "registration/password_change_form.html"
 
@@ -35,13 +36,13 @@ class PasswordChangeView(PasswordChangeView):
         # messages.success(self.request, "Password updated successfully")
         return super(PasswordChangeView, self).form_valid(form)
 
-class ProfileView(TemplateResponseMixin, View):
+class ProfileView(LoginRequiredMixin, TemplateResponseMixin, View):
     template_name = 'accounts/profile.html'
     
     def get(self, request, *args, **kwargs):
         return self.render_to_response({})
     
-class ProfileUpdateView(UpdateView):
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     fields = ["first_name", "last_name"]
 

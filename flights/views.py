@@ -1,5 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import TemplateResponseMixin, View
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.shortcuts import get_object_or_404
 from destinations.models import Destination
 from flights.forms import FlightForm
@@ -15,12 +17,12 @@ from django.contrib import messages
 
 
 
-class FlightDetailView(DetailView):
+class FlightDetailView(LoginRequiredMixin, DetailView):
   """Renders details of a specific destination"""
   model = Flight
   template_name = 'flights/flight_detail.html'
 
-class FlightSearchView(FormView):
+class FlightSearchView(LoginRequiredMixin, FormView):
   template_name = 'flights/flights_search.html'
   form_class = FlightForm
 
@@ -81,7 +83,7 @@ class FlightSearchView(FormView):
       return new_paths
 
 
-class GeneratedRouteView(DetailView):
+class GeneratedRouteView(LoginRequiredMixin, DetailView):
   """Renders details of a specific destination"""
   model = GeneratedRoute
   template_name = 'flights/generated_route.html'
@@ -92,7 +94,7 @@ class GeneratedRouteView(DetailView):
     context['generated_route'] = generated_route
     return context
   
-class FlightBookingCreateView(CreateView):
+class FlightBookingCreateView(LoginRequiredMixin, CreateView):
   model = FlightBooking
   fields = ['people']  # Fields you want users to edit
   template_name = 'flights/flight_booking.html'  # Adjust as needed
@@ -116,10 +118,10 @@ class FlightBookingCreateView(CreateView):
     return super().form_valid(form)
 
 
-class FlightBookingPaymentView(FormView):
+class FlightBookingPaymentView(LoginRequiredMixin, FormView):
     template_name = 'accommodations/make_payment.html'
     form_class = PhoneNumberForm
-    # success_url = reverse_lazy('activity_booking_payment_success', kwargs={'activity_id': '<activity_id>', 'booking_id': '<booking_id>'})  # Placeholder for actual URL pattern
+    success_url = reverse_lazy('recommendations:home')  # Placeholder for actual URL pattern
 
     def get_form_kwargs(self):
         """Inject booking object into the form's initial data."""
@@ -129,24 +131,6 @@ class FlightBookingPaymentView(FormView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        booking = self.get_booking()
-        print('')
-        print('')
-        print('')
-        print('')
-        print('')
-        print('')
-        print('')
-        print(booking.price)
-        print('')
-        print('')
-        print('')
-        print('')
-        print('')
-        print('')
-        print('')
-        print('')
-
         context['booking'] = self.get_booking()  # Access the booking object
         # Add other context data as needed (e.g., additional information)
         return context
