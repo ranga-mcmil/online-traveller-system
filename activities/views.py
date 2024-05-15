@@ -4,6 +4,8 @@ from django.views.generic import FormView
 from payments.forms import PhoneNumberForm
 from payments.models import Payment
 from recommendations.forms import SearchForm
+from reviews.forms import ActivityReviewForm
+from reviews.models import ActivityReview
 # from bookings.forms import BookingForm
 from .models import Activity, ActivityBooking
 from django.shortcuts import redirect
@@ -129,3 +131,34 @@ class ActivityBookingPaymentView(LoginRequiredMixin, FormView):
             messages.error(self.request, 'Error happened, please try again')
             return redirect(self.request.META['HTTP_REFERER'])
         
+
+
+
+class ActivityReviewListView(FormView):
+    model = Activity
+    template_name = 'activities/activity_reviews.html'
+    form_class = ActivityReviewForm
+    activity = None
+
+    def get_success_url(self):
+      return reverse_lazy('activities:activity_reviews', kwargs={'pk': self.activity.id})
+
+    def dispatch(self, request, pk, *args, **kwargs):
+      self.request = request
+      activity_pk = self.kwargs.get('pk')  # Get the pk from URL arguments
+      self.activity = get_object_or_404(Activity, pk=activity_pk)
+      return super().dispatch(request)
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      reviews = ActivityReview.objects.filter(activity=self.activity)
+      context['reviews'] = reviews
+      context['activity'] = self.activity  # Add the accommodation to context
+      return context
+
+    def form_valid(self, form):
+        review = form.save(commit=False) 
+        review.user = self.request.user 
+        review.activity = self.activity
+        review.save() 
+        return super().form_valid(form)

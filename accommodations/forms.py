@@ -19,3 +19,5 @@ class CheckAvailabilityForm(forms.Form):
         return start_date, end_date
     
 
+
+

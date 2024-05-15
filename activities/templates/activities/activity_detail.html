@@ -7,7 +7,7 @@
       <div class="col-md-10 text-center" data-aos="fade">
         <h1 class="heading mb-3">{{ activity.name }}</h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="">Home</a></li>
+          <li><a href="{% url 'activities:activity_reviews' activity.id %}">Reviews</a></li>
           <li>&bullet;</li>
           <li>Activity</li>
         </ul>

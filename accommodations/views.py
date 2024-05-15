@@ -12,6 +12,8 @@ from payments.forms import PhoneNumberForm
 from payments.models import Payment
 from django.views.generic import FormView
 from recommendations.forms import SearchForm
+from reviews.forms import AccommodationReviewForm
+from reviews.models import AccommodationReview
 from .models import Accommodation, AccomodationBooking, Room
 from django import forms
 from payments.ecocash import make_payment
@@ -296,3 +298,33 @@ class SearchResultsView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['search_query'] = self.request.GET.get('q', '')
         return context
+    
+
+class AccommodationReviewListView(FormView):
+    model = Accommodation
+    template_name = 'accommodations/accommodation_reviews.html'
+    form_class = AccommodationReviewForm
+    accommodation = None
+
+    def get_success_url(self):
+      return reverse_lazy('accommodations:accommodation_reviews', kwargs={'pk': self.accommodation.id})
+
+    def dispatch(self, request, pk, *args, **kwargs):
+      self.request = request
+      accommodation_pk = self.kwargs.get('pk')  # Get the pk from URL arguments
+      self.accommodation = get_object_or_404(Accommodation, pk=accommodation_pk)
+      return super().dispatch(request)
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      reviews = AccommodationReview.objects.filter(accommodation=self.accommodation)
+      context['reviews'] = reviews
+      context['accommodation'] = self.accommodation  # Add the accommodation to context
+      return context
+
+    def form_valid(self, form):
+        review = form.save(commit=False) 
+        review.user = self.request.user 
+        review.accommodation = self.accommodation
+        review.save() 
+        return super().form_valid(form)
