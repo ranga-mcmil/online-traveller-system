@@ -23,7 +23,7 @@ class RegistrationView(TemplateResponseMixin, View):
             user.set_password(user.password)  # Hash password before saving
             user.save()  # Now save the user with the hashed password using custom manager
             login(request, user)  # Log in the newly created user
-            return redirect('destination_list')  # Redirect to your desired URL after successful registration
+            return redirect('recommendations:home')  # Redirect to your desired URL after successful registration
         context = {'form': form}
         return self.render_to_response(context)
     
