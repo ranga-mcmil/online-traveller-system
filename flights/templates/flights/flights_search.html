@@ -98,7 +98,17 @@
             </div>
           </a>
         </div>
+      {% else %}
+
+        <h1>Flights</h1>
+        <br>
+        {% for flight in flights %}
+          <p>{{flight.name}}</p>
+        {% endfor %}
       {% endif %}
+
+
+
 
     </div>
   </div>

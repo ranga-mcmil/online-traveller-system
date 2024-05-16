@@ -28,6 +28,7 @@ class FlightSearchView(LoginRequiredMixin, FormView):
 
   def get(self, request, *args, **kwargs):
     form = self.get_form()
+    flights = Flight.objects.all()
 
     origin = self.request.GET.get('origin') 
     destination = self.request.GET.get('destination') 
@@ -48,7 +49,7 @@ class FlightSearchView(LoginRequiredMixin, FormView):
         generated_route.update_total_price()
         generated_route.save()
       
-    context = self.get_context_data(form=form, generated_route=generated_route)
+    context = self.get_context_data(form=form, generated_route=generated_route, flights=flights)
     return self.render_to_response(context)
 
   def form_valid(self, form):    
