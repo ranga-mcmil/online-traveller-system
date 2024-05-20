@@ -12,9 +12,18 @@ paynow = Paynow(
 
 
 def make_payment(reason, phone_number, email, amount):
+    print('Reason: ', reason )
+    print('phone_number: ', phone_number )
+    print('email: ', email )
+    print('amount: ', amount )
+
+
     payment = paynow.create_payment(random.randint(1, 1000000000000), email)
     payment.add(reason, amount)
     response = paynow.send_mobile(payment, phone_number, 'ecocash')
+
+    print('Response: ', response)
+
     try:
         if(response.success):
                 i = 0
@@ -33,6 +42,7 @@ def make_payment(reason, phone_number, email, amount):
                     if i == 60:
                         return {'status': status.status}
     except:
+        
         return {'status': 'system_error'}
 
 

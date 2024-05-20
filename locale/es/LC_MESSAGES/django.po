@@ -23,8 +23,9 @@ msgstr ""
 #: accommodations/templates/accommodations/accommodation_booking.html:16
 #: activities/templates/activities/activity_booking.html:11
 #: activities/templates/activities/activity_booking.html:15
+
 msgid "Reservation"
-msgstr ""
+msgstr "Reserva"
 
 #: accommodations/templates/accommodations/accommodation_booking.html:14
 #: accommodations/templates/accommodations/make_payment.html:14
@@ -36,29 +37,29 @@ msgstr ""
 #: flights/templates/flights/flights_search.html:22
 #: flights/templates/flights/generated_route.html:16
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: accommodations/templates/accommodations/accommodation_booking.html:40
 msgid "Date Check In"
-msgstr ""
+msgstr "Fecha de entrada"
 
 #: accommodations/templates/accommodations/accommodation_booking.html:45
 msgid "Date Check Out"
-msgstr ""
+msgstr "Fecha de salida"
 
 #: accommodations/templates/accommodations/accommodation_booking.html:54
 #: accommodations/templates/accommodations/accommodation_detail.html:55
 msgid "Adults"
-msgstr ""
+msgstr "Adultos"
 
 #: accommodations/templates/accommodations/accommodation_booking.html:61
 #: accommodations/templates/accommodations/accommodation_detail.html:67
 msgid "Children"
-msgstr ""
+msgstr "Niños"
 
 #: accommodations/templates/accommodations/accommodation_booking.html:74
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 #: accommodations/templates/accommodations/accommodation_detail.html:13
 #: accommodations/templates/accommodations/accommodation_list.html:23
@@ -67,39 +68,39 @@ msgstr ""
 #: activities/templates/activities/activity_detail.html:12
 #: activities/templates/activities/activity_reviews.html:57
 msgid "Reviews"
-msgstr ""
+msgstr "Opiniones"
 
 #: accommodations/templates/accommodations/accommodation_detail.html:38
 #: bookings/templates/bookings/bookings_list.html:53
 msgid "Check In"
-msgstr ""
+msgstr "Entrada"
 
 #: accommodations/templates/accommodations/accommodation_detail.html:45
 #: bookings/templates/bookings/bookings_list.html:56
 msgid "Check Out"
-msgstr ""
+msgstr "Salida"
 
 #: accommodations/templates/accommodations/accommodation_detail.html:81
 msgid "Check Availability"
-msgstr ""
+msgstr "Ver disponibilidad"
 
 #: accommodations/templates/accommodations/accommodation_detail.html:106
 msgid "per night"
-msgstr ""
+msgstr "por noche"
 
 #: accommodations/templates/accommodations/accommodation_list.html:14
 #: activities/templates/activities/activities_list.html:14
 #: flights/templates/flights/flights_search.html:13
 #: recommendations/templates/recommendations/home.html:17
 msgid "Search Results"
-msgstr ""
+msgstr "Resultados de la búsqueda"
 
 #: accommodations/templates/accommodations/accommodation_list.html:16
 #: accommodations/templates/accommodations/accommodation_list.html:25
 #: accounts/templates/base.html:64
 #: recommendations/templates/recommendations/home.html:73
 msgid "Accommodations"
-msgstr ""
+msgstr "Alojamientos"
 
 #: accommodations/templates/accommodations/accommodation_list.html:49
 #: accommodations/templates/accommodations/accommodation_list.html:56
@@ -109,94 +110,95 @@ msgstr ""
 #: recommendations/templates/recommendations/home.html:50
 #: recommendations/templates/recommendations/home.html:57
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: accommodations/templates/accommodations/accommodation_reviews.html:37
 #: activities/templates/activities/activity_reviews.html:37
 msgid "Review"
-msgstr ""
+msgstr "Opinión"
 
 #: accommodations/templates/accommodations/accommodation_reviews.html:44
 #: activities/templates/activities/activity_reviews.html:44
 msgid "Add Review"
-msgstr ""
+msgstr "Agregar opinión"
 
 #: accommodations/templates/accommodations/make_payment.html:12
 #: accommodations/templates/accommodations/make_payment.html:16
 msgid "Payment"
-msgstr ""
+msgstr "Pago"
 
 #: accommodations/templates/accommodations/make_payment.html:40
 msgid "Phone Number"
-msgstr ""
+msgstr "Número de teléfono"
 
 #: accommodations/templates/accommodations/make_payment.html:61
 msgid "Price"
-msgstr ""
+msgstr "Precio"
 
 #: accounts/models.py:8
 msgid "email address"
-msgstr ""
+msgstr "correo electrónico"
 
 #: accounts/templates/accounts/profile.html:13 accounts/templates/base.html:68
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #: accounts/templates/base.html:9
 #: recommendations/templates/recommendations/home.html:19
 msgid "Online Travel Planner"
-msgstr ""
+msgstr "Planificador de viajes en línea"
 
 #: accounts/templates/base.html:43
 msgid "Change Language"
-msgstr ""
+msgstr "Cambiar idioma"
 
 #: accounts/templates/base.html:65
 #: activities/templates/activities/activities_list.html:16
 #: activities/templates/activities/activities_list.html:25
 #: recommendations/templates/recommendations/home.html:102
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #: accounts/templates/base.html:66
 #: flights/templates/flights/flights_search.html:15
 #: flights/templates/flights/flights_search.html:24
 #: flights/templates/flights/flights_search.html:105
 msgid "Flights"
-msgstr ""
+msgstr "Vuelos"
 
 #: accounts/templates/base.html:67
 #: bookings/templates/bookings/bookings_list.html:11
 #: bookings/templates/bookings/bookings_list.html:15
 msgid "Bookings"
-msgstr ""
+msgstr "Reservas"
 
 #: accounts/templates/base.html:72
 msgid "Sign Out"
-msgstr ""
+msgstr "Cerrar sesión"
 
 #: accounts/templates/base.html:75
 #: accounts/templates/registration/login.html:13
 #: accounts/templates/registration/login.html:17
 #: accounts/templates/registration/register.html:15
 msgid "Sign In"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: accounts/templates/registration/login.html:15
 #: accounts/templates/registration/register.html:17
 msgid "Sign Up"
-msgstr ""
+msgstr "Registrarse"
 
 #: accounts/templates/registration/login.html:48
 #: accounts/templates/registration/register.html:47
 #: activities/templates/activities/activity_booking.html:61
 #: flights/templates/flights/flight_booking.html:58
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
+
+#: accounts/templates/registration/login.html:56
+#: accounts/templates/registration/register
 
 
-for every line that starts with msgid, can you translate into Spanish the string that is in double quotes next to it, and can you paste the translation inside the empty quotes on the line below it, on the line that starts with msgstr
- can you return the file with the translations filled in
 
 
 
@@ -1510,189 +1512,6 @@ msgstr ""
 #: recommendations/templates/recommendations/home.html:103
 msgid "View All"
 msgstr ""
-
-
-
-
-
-msgid "Reservation"
-msgstr "Reserva"
-
-#: accommodations/templates/accommodations/accommodation_booking.html:14
-#: accommodations/templates/accommodations/make_payment.html:14
-#: accounts/templates/base.html:63
-#: activities/templates/activities/activities_list.html:23
-#: activities/templates/activities/activity_booking.html:13
-#: bookings/templates/bookings/bookings_list.html:13
-#: flights/templates/flights/flight_booking.html:13
-#: flights/templates/flights/flights_search.html:22
-#: flights/templates/flights/generated_route.html:16
-msgid "Home"
-msgstr "Inicio"
-
-#: accommodations/templates/accommodations/accommodation_booking.html:40
-msgid "Date Check In"
-msgstr "Fecha de entrada"
-
-#: accommodations/templates/accommodations/accommodation_booking.html:45
-msgid "Date Check Out"
-msgstr "Fecha de salida"
-
-#: accommodations/templates/accommodations/accommodation_booking.html:54
-#: accommodations/templates/accommodations/accommodation_detail.html:55
-msgid "Adults"
-msgstr "Adultos"
-
-#: accommodations/templates/accommodations/accommodation_booking.html:61
-#: accommodations/templates/accommodations/accommodation_detail.html:67
-msgid "Children"
-msgstr "Niños"
-
-#: accommodations/templates/accommodations/accommodation_booking.html:74
-msgid "Notes"
-msgstr "Notas"
-
-#: accommodations/templates/accommodations/accommodation_detail.html:13
-#: accommodations/templates/accommodations/accommodation_list.html:23
-#: accommodations/templates/accommodations/accommodation_reviews.html:13
-#: accommodations/templates/accommodations/accommodation_reviews.html:57
-#: activities/templates/activities/activity_detail.html:12
-#: activities/templates/activities/activity_reviews.html:57
-msgid "Reviews"
-msgstr "Opiniones"
-
-#: accommodations/templates/accommodations/accommodation_detail.html:38
-#: bookings/templates/bookings/bookings_list.html:53
-msgid "Check In"
-msgstr "Entrada"
-
-#: accommodations/templates/accommodations/accommodation_detail.html:45
-#: bookings/templates/bookings/bookings_list.html:56
-msgid "Check Out"
-msgstr "Salida"
-
-#: accommodations/templates/accommodations/accommodation_detail.html:81
-msgid "Check Availability"
-msgstr "Ver disponibilidad"
-
-#: accommodations/templates/accommodations/accommodation_detail.html:106
-msgid "per night"
-msgstr "por noche"
-
-#: accommodations/templates/accommodations/accommodation_list.html:14
-#: activities/templates/activities/activities_list.html:14
-#: flights/templates/flights/flights_search.html:13
-#: recommendations/templates/recommendations/home.html:17
-msgid "Search Results"
-msgstr "Resultados de la búsqueda"
-
-#: accommodations/templates/accommodations/accommodation_list.html:16
-#: accommodations/templates/accommodations/accommodation_list.html:25
-#: accounts/templates/base.html:64
-#: recommendations/templates/recommendations/home.html:73
-msgid "Accommodations"
-msgstr "Alojamientos"
-
-#: accommodations/templates/accommodations/accommodation_list.html:49
-#: accommodations/templates/accommodations/accommodation_list.html:56
-#: activities/templates/activities/activities_list.html:49
-#: activities/templates/activities/activities_list.html:56
-#: flights/templates/flights/flights_search.html:62
-#: recommendations/templates/recommendations/home.html:50
-#: recommendations/templates/recommendations/home.html:57
-msgid "Search"
-msgstr "Buscar"
-
-#: accommodations/templates/accommodations/accommodation_reviews.html:37
-#: activities/templates/activities/activity_reviews.html:37
-msgid "Review"
-msgstr "Opinión"
-
-#: accommodations/templates/accommodations/accommodation_reviews.html:44
-#: activities/templates/activities/activity_reviews.html:44
-msgid "Add Review"
-msgstr "Agregar opinión"
-
-#: accommodations/templates/accommodations/make_payment.html:12
-#: accommodations/templates/accommodations/make_payment.html:16
-msgid "Payment"
-msgstr "Pago"
-
-#: accommodations/templates/accommodations/make_payment.html:40
-msgid "Phone Number"
-msgstr "Número de teléfono"
-
-#: accommodations/templates/accommodations/make_payment.html:61
-msgid "Price"
-msgstr "Precio"
-
-#: accounts/models.py:8
-msgid "email address"
-msgstr "correo electrónico"
-
-#: accounts/templates/accounts/profile.html:13 accounts/templates/base.html:68
-msgid "Profile"
-msgstr "Perfil"
-
-#: accounts/templates/base.html:9
-#: recommendations/templates/recommendations/home.html:19
-msgid "Online Travel Planner"
-msgstr "Planificador de viajes en línea"
-
-#: accounts/templates/base.html:43
-msgid "Change Language"
-msgstr "Cambiar idioma"
-
-#: accounts/templates/base.html:65
-#: activities/templates/activities/activities_list.html:16
-#: activities/templates/activities/activities_list.html:25
-#: recommendations/templates/recommendations/home.html:102
-msgid "Activities"
-msgstr "Actividades"
-
-#: accounts/templates/base.html:66
-#: flights/templates/flights/flights_search.html:15
-#: flights/templates/flights/flights_search.html:24
-#: flights/templates/flights/flights_search.html:105
-msgid "Flights"
-msgstr "Vuelos"
-
-#: accounts/templates/base.html:67
-#: bookings/templates/bookings/bookings_list.html:11
-#: bookings/templates/bookings/bookings_list.html:15
-msgid "Bookings"
-msgstr "Reservas"
-
-#: accounts/templates/base.html:72
-msgid "Sign Out"
-msgstr "Cerrar sesión"
-
-#: accounts/templates/base.html:75
-#: accounts/templates/registration/login.html:13
-#: accounts/templates/registration/login.html:17
-#: accounts/templates/registration/register.html:15
-msgid "Sign In"
-msgstr "Iniciar sesión"
-
-#: accounts/templates/registration/login.html:15
-#: accounts/templates/registration/register.html:17
-msgid "Sign Up"
-msgstr "Registrarse"
-
-#: accounts/templates/registration/login.html:48
-#: accounts/templates/registration/register.html:47
-#: activities/templates/activities/activity_booking.html:61
-#: flights/templates/flights/flight_booking.html:58
-msgid "Email"
-msgstr "Correo electrónico"
-
-#: accounts/templates/registration/login.html:56
-#: accounts/templates/registration/register
-
-
-
-
-
 
 
 
