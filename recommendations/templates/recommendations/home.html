@@ -1,4 +1,8 @@
+
 {% extends 'base.html' %}
+
+{% load i18n %}
+
 
 {% block content %}
 
@@ -10,9 +14,9 @@
                         class="fa fa-star text-primary"></span></span>
                 <h1 class="heading">
                     {% if request.GET.search %}
-                        Search Results
+                        {% trans "Search Results" %}
                     {% else %}
-                        Online Travel Planner
+                        {% trans "Online Travel Planner" %}
                     {% endif %}
                 </h1>
                 
@@ -43,14 +47,14 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6 mb-3 mb-lg-0 col-lg-8">
-                            <label for="checkin_date" class="font-weight-bold text-black">Search</label>
+                            <label for="checkin_date" class="font-weight-bold text-black">{% trans "Search" %}</label>
                             <div class="field-icon-wrap">
                                 {{form.search}}
                             </div>
                         </div>
                         
                         <div class="col-md-4 col-lg-4 align-self-end">
-                            <button class="btn btn-primary btn-block text-white">Search</button>
+                            <button class="btn btn-primary btn-block text-white">{% trans "Search" %}</button>
                         </div>
                     </div>
                 </form>
@@ -66,8 +70,8 @@
     <div class="container">
         <div class="row justify-content-center text-center mb-5">
             <div class="col-md-7">
-                <h2 class="heading" data-aos="fade-up">Accommodations</h2>
-                <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'accommodations:accommodation_list' %}">View All</a></p>
+                <h2 class="heading" data-aos="fade-up">{% trans "Accommodations" %}</h2>
+                <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'accommodations:accommodation_list' %}">{% trans "View All" %}</a></p>
             </div>
         </div>
         <div class="row">
@@ -95,8 +99,8 @@
     <div class="container">
         <div class="row justify-content-center text-center mb-5">
             <div class="col-md-7">
-                <h2 class="heading" data-aos="fade-up">Activities</h2>
-                <p data-aos="fade-up"><a href="{% url 'activities:activity_list' %}">View All</a></p>
+                <h2 class="heading" data-aos="fade-up">{% trans "Activities" %}</h2>
+                <p data-aos="fade-up"><a href="{% url 'activities:activity_list' %}">{% trans "View All" %}</a></p>
             </div>
         </div>
         <div class="row">

@@ -1,4 +1,7 @@
+
+
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %} 
 <section class="site-hero inner-page overlay" style="background-image: url(/static/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
@@ -7,7 +10,7 @@
       <div class="col-md-10 text-center" data-aos="fade">
         <h1 class="heading mb-3">{{ accommodation.name }}</h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="{% url 'accommodations:accommodation_reviews' accommodation.pk %}">Reviews</a></li>
+          <li><a href="{% url 'accommodations:accommodation_reviews' accommodation.pk %}">{% trans "Reviews" %}</a></li>
           <li>&bullet;</li>
           <li>{{ accommodation.name }}</li>
         </ul>
@@ -32,14 +35,14 @@
           {% csrf_token %}
           <div class="row">
             <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-              <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
+              <label for="checkin_date" class="font-weight-bold text-black">{% trans "Check In" %}</label>
               <div class="field-icon-wrap">
                 <div class="icon"><span class="icon-calendar"></span></div>
                 {{form.start_date}}
               </div>
             </div>
             <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-              <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
+              <label for="checkout_date" class="font-weight-bold text-black">{% trans "Check Out" %}</label>
               <div class="field-icon-wrap">
                 <div class="icon"><span class="icon-calendar"></span></div>
                 {{form.end_date}}
@@ -49,7 +52,7 @@
             <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
               <div class="row">
                 <div class="col-md-6 mb-3 mb-md-0">
-                  <label for="adults" class="font-weight-bold text-black">Adults</label>
+                  <label for="adults" class="font-weight-bold text-black">{% trans "Adults" %}</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                     <select name="" id="adults" class="form-control">
@@ -61,7 +64,7 @@
                   </div>
                 </div>
                 <div class="col-md-6 mb-3 mb-md-0">
-                  <label for="children" class="font-weight-bold text-black">Children</label>
+                  <label for="children" class="font-weight-bold text-black">{% trans "Children" %}</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                     <select name="" id="children" class="form-control">
@@ -75,7 +78,7 @@
               </div>
             </div>
             <div class="col-md-6 col-lg-3 align-self-end">
-              <button class="btn btn-primary btn-block text-white" type="submit">Check Availabilty</button>
+              <button class="btn btn-primary btn-block text-white" type="submit">{% trans "Check Availability" %}</button>
             </div>
           </div>
         </form>
@@ -100,7 +103,7 @@
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>{{room.name}} </h2>
-                <span class="text-uppercase letter-spacing-1">${{room.price}} / per night</span>
+                <span class="text-uppercase letter-spacing-1">${{room.price}} / {% trans "per night" %}</span>
               </div>
             </a>
           </div>

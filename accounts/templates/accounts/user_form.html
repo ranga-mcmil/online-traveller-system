@@ -1,8 +1,87 @@
-<form class="mb-3" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  
-  <div class="mb-3">
-    <button class="btn btn-primary d-grid w-100" type="submit">Update</button>
+
+
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %} 
+
+
+<section class="site-hero inner-page overlay" style="background-image: url(/static/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row site-hero-inner justify-content-center align-items-center">
+      <div class="col-md-10 text-center" data-aos="fade">
+        <h1 class="heading mb-3">{% trans "Profile" %}</h1>
+        <ul class="custom-breadcrumbs mb-4">
+          <li><a href="{% url 'recommendations:home' %}">{% trans "Home" %}</a></li>
+          <li>&bullet;</li>
+          <li>{% trans "Profile" %}</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</form>
+
+  <a class="mouse smoothscroll" href="#next">
+    <div class="mouse-icon">
+      <span class="mouse-wheel"></span>
+    </div>
+  </a>
+</section>
+<!-- END section -->
+
+<section class="section contact-section" id="next">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+        
+        <form action="#" method="post" class="bg-white p-md-5 p-4 mb-5 border">
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <label class="text-black font-weight-bold" for="checkin_date">{% trans "First Name" %}</label>
+              {{form.first_name}}
+              
+            </div>
+            <div class="col-md-6 form-group">
+              <label class="text-black font-weight-bold" for="checkout_date">{% trans "Last Name" %}</label>
+              {{form.last_name}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label for="adults" class="font-weight-bold text-black">{% trans "Email" %}</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                <input type="text" id="" class="form-control" disabled value="{{user.email}}">
+              </div>
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="submit" value="Update Profile" class="btn btn-primary text-white py-3 px-5 font-weight-bold">
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="row">
+          <div class="col-md-10 ml-auto contact-info">
+            <p><span class="d-block">Name:</span> <span class="text-black"> {{ accommodation.name }}</span></p>
+            <p><span class="d-block">Phone:</span> <span class="text-black"> (+1) 435 3533</span></p>
+            <p><span class="d-block">Email:</span> <span class="text-black"> info@yourdomain.com</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+{% endblock %} 

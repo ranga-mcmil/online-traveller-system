@@ -1,5 +1,7 @@
-{% extends 'base.html' %}
 
+
+{% extends 'base.html' %}
+{% load i18n %}
 {% block content %} 
 
 
@@ -7,11 +9,11 @@
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center" data-aos="fade">
-        <h1 class="heading mb-3">Reservation</h1>
+        <h1 class="heading mb-3">{% trans "Reservation" %}</h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">{% trans "Home" %}</a></li>
           <li>&bullet;</li>
-          <li>Reservation</li>
+          <li>{% trans "Reservation" %}</li>
         </ul>
       </div>
     </div>
@@ -35,12 +37,12 @@
 
           <div class="row">
             <div class="col-md-6 form-group">
-              <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
+              <label class="text-black font-weight-bold" for="checkin_date">{% trans "Date Check In" %}</label>
               <!-- <input type="text" id="checkin_date" class="form-control"> -->
               {{form.start_date}}
             </div>
             <div class="col-md-6 form-group">
-              <label class="text-black font-weight-bold" for="checkout_date">Date Check Out</label>
+              <label class="text-black font-weight-bold" for="checkout_date">{% trans "Date Check Out" %}</label>
               <!-- <input type="text" id="checkout_date" class="form-control"> -->
               {{form.end_date}}
 
@@ -49,14 +51,14 @@
 
           <div class="row">
             <div class="col-md-6 form-group">
-              <label for="adults" class="font-weight-bold text-black">Adults</label>
+              <label for="adults" class="font-weight-bold text-black">{% trans "Adults" %}</label>
               <div class="field-icon-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 {{form.adults}}
               </div>
             </div>
             <div class="col-md-6 form-group">
-              <label for="children" class="font-weight-bold text-black">Children</label>
+              <label for="children" class="font-weight-bold text-black">{% trans "Children" %}</label>
               <div class="field-icon-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 {{form.children}}
@@ -69,7 +71,7 @@
 
           <div class="row mb-4">
             <div class="col-md-12 form-group">
-              <label class="text-black font-weight-bold" for="message">Notes</label>
+              <label class="text-black font-weight-bold" for="message">{% trans "Notes" %}</label>
               {{form.notes}}
             </div>
           </div>
@@ -85,8 +87,6 @@
         <div class="row">
           <div class="col-md-10 ml-auto contact-info">
             <p><span class="d-block">Name:</span> <span class="text-black"> {{ accommodation.name }}</span></p>
-            <p><span class="d-block">Phone:</span> <span class="text-black"> (+1) 435 3533</span></p>
-            <p><span class="d-block">Email:</span> <span class="text-black"> info@yourdomain.com</span></p>
           </div>
         </div>
       </div>

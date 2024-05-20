@@ -43,6 +43,7 @@ urlpatterns = [
     path('destinations/', include('destinations.urls')),
     path('flights/', include('flights.urls')),
     path('', include('recommendations.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 if settings.DEBUG:

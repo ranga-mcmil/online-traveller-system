@@ -1,4 +1,6 @@
+
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <section class="site-hero inner-page overlay" style="background-image: url(/static/images/hero_4.jpg)"
@@ -8,7 +10,7 @@
             <div class="col-md-10 text-center" data-aos="fade">
                 <h1 class="heading mb-3">{{ accommodation.name }}</h1>
                 <ul class="custom-breadcrumbs mb-4">
-                    <li>(Reviews)</li>
+                    <li>({% trans "Reviews" %})</li>
 
                 </ul>
             </div>
@@ -32,14 +34,14 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-12 mb-3 mb-lg-12 col-lg-12">
-                            <label for="checkin_date" class="font-weight-bold text-black">Review</label>
+                            <label for="checkin_date" class="font-weight-bold text-black">{% trans "Review" %}</label>
                             <div class="field-icon-wrap">
                                 {{form.content}}
                             </div>
                         </div>
 
                         <div class="col-md-4 col-lg-4 align-self-end">
-                            <button class="btn btn-primary btn-block text-white">Add Review</button>
+                            <button class="btn btn-primary btn-block text-white">{% trans "Add Review" %}</button>
                         </div>
                     </div>
                 </form>
@@ -52,7 +54,7 @@
     <div class="container">
         <div class="row justify-content-center text-center mb-5">
             <div class="col-md-7">
-                <h2 class="heading" data-aos="fade-up">Reviews</h2>
+                <h2 class="heading" data-aos="fade-up">{% trans "Reviews" %}</h2>
             </div>
         </div>
 

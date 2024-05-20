@@ -6,6 +6,8 @@ from accounts.models import User
 from .forms import RegistrationForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+
 
 
 class RegistrationView(TemplateResponseMixin, View):
@@ -30,6 +32,7 @@ class RegistrationView(TemplateResponseMixin, View):
 class PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     form_class = PasswordChangeForm
     template_name = "registration/password_change_form.html"
+    success_url = reverse_lazy('recommendations:home') 
 
     def form_valid(self, form):
         form.save()
@@ -45,6 +48,7 @@ class ProfileView(LoginRequiredMixin, TemplateResponseMixin, View):
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     fields = ["first_name", "last_name"]
+    success_url = reverse_lazy('recommendations:home') 
 
     def get_form(self, form_class=None):
         form = super(ProfileUpdateView, self).get_form(form_class)

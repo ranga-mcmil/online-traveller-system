@@ -1,4 +1,7 @@
+
 {% extends 'base.html' %}
+
+{% load i18n %}
 
 {% block content %} 
 
@@ -8,18 +11,18 @@
       <div class="col-md-10 text-center" data-aos="fade">
         <h1 class="heading mb-3">
           {% if request.GET.search %}
-            Search Results
+            {% trans "Search Results" %}
           {% else %}
-            Activities
+            {% trans "Activities" %}
           {% endif %}
         </h1>
         <ul class="custom-breadcrumbs mb-4">
           {% if request.GET.search %}
             <li>({{request.GET.search}})</li>
           {% else %}
-            <li><a href="{% url 'recommendations:home' %}">Home</a></li>
+            <li><a href="{% url 'recommendations:home' %}">{% trans "Home" %}</a></li>
             <li>&bullet;</li>
-            <li>Activities</li>
+            <li>{% trans "Activities" %}</li>
           {% endif %}
         </ul>
       </div>
@@ -43,14 +46,14 @@
                   {% csrf_token %}
                   <div class="row">
                       <div class="col-md-6 mb-3 mb-lg-0 col-lg-8">
-                          <label for="checkin_date" class="font-weight-bold text-black">Search</label>
+                          <label for="checkin_date" class="font-weight-bold text-black">{% trans "Search" %}</label>
                           <div class="field-icon-wrap">
                               {{form.search}}
                           </div>
                       </div>
                       
                       <div class="col-md-4 col-lg-4 align-self-end">
-                          <button class="btn btn-primary btn-block text-white">Search</button>
+                          <button class="btn btn-primary btn-block text-white">{% trans "Search" %}</button>
                       </div>
                   </div>
               </form>

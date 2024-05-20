@@ -226,6 +226,13 @@ class AccommodationBookingPaymentView(LoginRequiredMixin, FormView):
     def dispatch(self, request, booking_pk, *args, **kwargs):
       self.request = request
       return super().dispatch(request)
+    
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      booking_pk = self.kwargs['booking_pk']
+      accommodation_booking = get_object_or_404(AccomodationBooking, pk=booking_pk)
+      context['booking'] = accommodation_booking  # Add the accommodation to context
+      return context
 
     def get_form_kwargs(self):
         """Inject booking object into the form's initial data."""

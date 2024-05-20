@@ -20,7 +20,12 @@ class ActivityBooking(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   activity = models.ForeignKey(Activity, on_delete=models.CASCADE, related_name='bookings')
   date = models.DateTimeField(blank=True, null=True)
-  people = models.CharField(max_length=255, blank=True, null=True)
+  price = models.DecimalField(max_digits=10, decimal_places=2)
+  people = models.IntegerField()
   status = models.CharField(max_length=50, choices=STATUS, default="PENDING")
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
+
+  def save(self, *args, **kwargs):
+    self.price = self.activity.price * self.people
+    super().save(*args, **kwargs)

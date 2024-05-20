@@ -1,4 +1,6 @@
+
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %} 
 
@@ -6,11 +8,11 @@
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center" data-aos="fade">
-        <h1 class="heading mb-3">Bookings</h1>
+        <h1 class="heading mb-3">{% trans "Bookings" %}</h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="{% url 'recommendations:home' %}">Home</a></li>
+          <li><a href="{% url 'recommendations:home' %}">{% trans "Home" %}</a></li>
           <li>&bullet;</li>
-          <li>Bookings</li>
+          <li>{% trans "Bookings" %}</li>
         </ul>
       </div>
     </div>
@@ -31,7 +33,7 @@
   <div class="container">
       <div class="row justify-content-center text-center mb-5">
           <div class="col-md-7">
-              <h2 class="heading" data-aos="fade-up">Accommodations Bookings</h2>
+              <h2 class="heading" data-aos="fade-up">{% trans "Accommodations Bookings" %}</h2>
           </div>
       </div>
       <div class="row">
@@ -43,18 +45,18 @@
                   <tr role="row">
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1"
                           colspan="1" aria-sort="ascending"
-                           style="width: 37px;">Accommodation</th>
+                           style="width: 37px;">{% trans "Accommodation" %}</th>
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
-                          aria-label="Address: activate to sort column " style="width: 51px;">Room
+                          aria-label="Address: activate to sort column " style="width: 51px;">{% trans "Room" %}
                       </th>
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
-                          aria-label="Disease: activate to sort column ascending" style="width: 49px;">Check In
+                          aria-label="Disease: activate to sort column ascending" style="width: 49px;">{% trans "Check In" %}
                       </th>
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
-                          aria-label="Disease: activate to sort column ascending" style="width: 49px;">Check Out
+                          aria-label="Disease: activate to sort column ascending" style="width: 49px;">{% trans "Check Out" %}
                       </th>
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
-                          aria-label="Age: activate to sort column ascending" style="width: 25px;">Status
+                          aria-label="Age: activate to sort column ascending" style="width: 25px;">{% trans "Status" %}
                       </th>
                   </tr>
               </thead>
@@ -90,7 +92,7 @@
   <div class="container">
       <div class="row justify-content-center text-center mb-5">
           <div class="col-md-7">
-              <h2 class="heading" data-aos="fade-up">Activities Bookings</h2>
+              <h2 class="heading" data-aos="fade-up">{% trans "Activities Booking" %}</h2>
           </div>
       </div>
       <div class="row">
@@ -102,16 +104,16 @@
                   <tr role="row">
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1"
                           colspan="1" aria-sort="ascending"
-                           style="width: 37px;">Activity
+                           style="width: 37px;">{% trans "Activity" %}
                       </th>
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
-                          aria-label="Address: activate to sort column " style="width: 51px;">Date
+                          aria-label="Address: activate to sort column " style="width: 51px;">{% trans "Date" %}
                       </th>
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
-                          aria-label="Disease: activate to sort column ascending" style="width: 49px;">No of People
+                          aria-label="Disease: activate to sort column ascending" style="width: 49px;">{% trans "Number of People" %}
                       </th>
                       <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
-                          aria-label="Age: activate to sort column ascending" style="width: 25px;">Status
+                          aria-label="Age: activate to sort column ascending" style="width: 25px;">{% trans "Status" %}
                       </th>
                   </tr>
               </thead>

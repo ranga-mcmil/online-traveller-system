@@ -1,4 +1,7 @@
+
 {% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %} 
 
@@ -7,11 +10,11 @@
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center" data-aos="fade">
-        <h1 class="heading mb-3">Sign up</h1>
+        <h1 class="heading mb-3">{% trans "Sign up" %}</h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="{% url 'accounts:login' %}">Sign In</a></li>
+          <li><a href="{% url 'accounts:login' %}">{% trans "Sign In" %}</a></li>
           <li>&bullet;</li>
-          <li>Sign Up</li>
+          <li>{% trans "Sign Up" %}</li>
         </ul>
       </div>
     </div>
@@ -41,21 +44,21 @@
 
           <div class="row">
             <div class="col-md-12 form-group">
-              <label for="adults" class="font-weight-bold text-black">Email</label>
+              <label for="adults" class="font-weight-bold text-black">{% trans "Email" %}</label>
               <div class="field-icon-wrap">
                 {{form.email}}
               </div>
             </div>
 
             <div class="col-md-12 form-group">
-              <label for="adults" class="font-weight-bold text-black">Password</label>
+              <label for="adults" class="font-weight-bold text-black">{% trans "Password" %}</label>
               <div class="field-icon-wrap">
                 {{form.password}}
               </div>
             </div>
 
             <div class="col-md-12 form-group">
-              <label for="adults" class="font-weight-bold text-black">Confirm Password</label>
+              <label for="adults" class="font-weight-bold text-black">{% trans "Confirm Password" %}</label>
               <div class="field-icon-wrap">
                 <div class="icon"></div>
                 {{form.confirm_password}}

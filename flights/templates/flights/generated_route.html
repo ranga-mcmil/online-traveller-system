@@ -1,4 +1,6 @@
+
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %} 
 
@@ -7,13 +9,13 @@
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center" data-aos="fade">
         <h1 class="heading mb-3">
-            Route
+          {% trans "Route" %}
         </h1>
         <ul class="custom-breadcrumbs mb-4">
           
-            <li><a href="{% url 'recommendations:home' %}">Home</a></li>
+            <li><a href="{% url 'recommendations:home' %}">{% trans "Home" %}</a></li>
             <li>&bullet;</li>
-            <li>Route</li>
+            <li>{% trans "Route" %}</li>
           
         </ul>
       </div>
@@ -60,7 +62,7 @@
                 {% endfor %}
               </ul>
 
-              <a href="{% url 'flights:flight_booking' generated_route.pk %}">Book</a>
+              <a href="{% url 'flights:flight_booking' generated_route.pk %}">{% trans "Book" %}</a>
             </div>
         </div>
 

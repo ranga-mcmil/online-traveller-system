@@ -1,4 +1,6 @@
+
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %} 
 
@@ -7,11 +9,11 @@
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center" data-aos="fade">
-        <h1 class="heading mb-3">Payment</h1>
+        <h1 class="heading mb-3">{% trans "Payment" %}</h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">{% trans "Home" %}</a></li>
           <li>&bullet;</li>
-          <li>Payment</li>
+          <li>{% trans "Payment" %}</li>
         </ul>
       </div>
     </div>
@@ -35,7 +37,7 @@
 
           <div class="row">
             <div class="col-md-12 form-group">
-              <label for="adults" class="font-weight-bold text-black">Ecocash Phone Number</label>
+              <label for="adults" class="font-weight-bold text-black">Ecocash {% trans "Phone Number" %}</label>
               <div class="field-icon-wrap">
                 {{form.phone_number}}
               </div>
@@ -56,7 +58,7 @@
       <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
         <div class="row">
           <div class="col-md-10 ml-auto contact-info">
-            <p><span class="d-block">PRICE: </span> <span class="text-black"> $ {{booking.price}}</span></p>
+            <p><span class="d-block">{% trans "Price" %}: </span> <span class="text-black"> $ {{booking.price}}</span></p>
 
           </div>
         </div>
@@ -72,34 +74,6 @@
 
 
 {% endblock %} 
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{ booking.accommodation.name }}</title>
-</head>
-<body>
-  Accomodation: {{ booking.accommodation.name }}
-  Room: {{booking.room.name}}
-  
-  <form class="mb-3" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    
-    <div class="mb-3">
-      <button class="btn btn-primary d-grid w-100" type="submit">Pay</button>
-    </div>
-  </form>
-
-
-</html>
-
 
 
 

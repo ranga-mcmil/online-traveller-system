@@ -1,4 +1,6 @@
+
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %} 
 <section class="site-hero inner-page overlay" style="background-image: url(/static/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
@@ -7,9 +9,9 @@
       <div class="col-md-10 text-center" data-aos="fade">
         <h1 class="heading mb-3">{{ activity.name }}</h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="{% url 'activities:activity_reviews' activity.id %}">Reviews</a></li>
+          <li><a href="{% url 'activities:activity_reviews' activity.id %}">{% trans "Reviews" %}</a></li>
           <li>&bullet;</li>
-          <li>Activity</li>
+          <li>{% trans "Activity" %}</li>
         </ul>
       </div>
     </div>
@@ -34,8 +36,8 @@
       </div>
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
         <h2 class="heading">{{ activity.name }}</h2>
-        <p class="mb-4">activity.description</p>
-        <p><a href="{% url 'activities:book' activity.pk %}" class="btn btn-primary text-white py-2 mr-3">Book</a> <span class="mr-3 font-family-serif"></p>
+        <p class="mb-4">{{activity.description}}</p>
+        <p><a href="{% url 'activities:book' activity.pk %}" class="btn btn-primary text-white py-2 mr-3">{% trans "Book" %}</a> <span class="mr-3 font-family-serif"></p>
       </div>
       
     </div>

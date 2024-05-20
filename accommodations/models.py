@@ -34,12 +34,18 @@ class AccomodationBooking(models.Model):
   room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='bookings')
   start_date = models.DateTimeField(blank=True, null=True)
   end_date = models.DateTimeField(blank=True, null=True)
-  adults = models.CharField(max_length=255, blank=True, null=True)
-  children = models.CharField(max_length=255, blank=True, null=True)
+  adults = models.IntegerField(blank=True, null=True)
+  children = models.IntegerField(blank=True, null=True)
   notes = models.CharField(max_length=255, blank=True, null=True)
+  price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
   status = models.CharField(max_length=50, choices=STATUS, default="PENDING")
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
+
+  def save(self, *args, **kwargs):
+    people = self.children + self.adults
+    self.price = self.room.price * people
+    super().save(*args, **kwargs)
 
 
 

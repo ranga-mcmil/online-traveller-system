@@ -1,4 +1,6 @@
+
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %} 
 
@@ -6,11 +8,11 @@
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center" data-aos="fade">
-        <h1 class="heading mb-3">Flight</h1>
+        <h1 class="heading mb-3">{% trans "Flight" %}</h1>
         <ul class="custom-breadcrumbs mb-4">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">{% trans "Home" %}</a></li>
           <li>&bullet;</li>
-          <li>Flight</li>
+          <li>{% trans "Flight" %}</li>
         </ul>
       </div>
     </div>
@@ -34,7 +36,7 @@
 
           <div class="row">
             <div class="col-md-12 form-group">
-              <label class="text-black font-weight-bold" for="checkin_date">Number of people</label>
+              <label class="text-black font-weight-bold" for="checkin_date">{% trans "Number of People" %}</label>
               {{form.people}}
             </div>
             
@@ -51,9 +53,9 @@
       <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
         <div class="row">
           <div class="col-md-10 ml-auto contact-info">
-            <p><span class="d-block">Name:</span> <span class="text-black"> {{ activity.name }}</span></p>
-            <p><span class="d-block">Phone:</span> <span class="text-black"> (+1) 435 3533</span></p>
-            <p><span class="d-block">Email:</span> <span class="text-black"> info@yourdomain.com</span></p>
+            <p><span class="d-block">{% trans "Name" %}:</span> <span class="text-black"> {{ activity.name }}</span></p>
+            <p><span class="d-block">{% trans "Phone" %}:</span> <span class="text-black"> (+1) 435 3533</span></p>
+            <p><span class="d-block">{% trans "Email" %}:</span> <span class="text-black"> info@yourdomain.com</span></p>
           </div>
         </div>
       </div>

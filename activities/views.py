@@ -65,6 +65,13 @@ class ActivityBookingCreateView(LoginRequiredMixin, CreateView):
   fields = ['date', 'people']  # Fields you want users to edit
   template_name = 'activities/activity_booking.html'  # Adjust as needed
 
+  def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      activity_pk = self.kwargs['pk']
+      activity = get_object_or_404(Activity, pk=activity_pk)
+      context['activity'] = activity  # Add the accommodation to context
+      return context
+
   def get_success_url(self):
     """Dynamically generate success URL with newly created booking ID."""
     booking = self.object  # Access the newly created booking object
@@ -95,6 +102,13 @@ class ActivityBookingPaymentView(LoginRequiredMixin, FormView):
         kwargs = super().get_form_kwargs()
         kwargs['initial'] = {'booking': self.get_booking()}
         return kwargs
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      booking_pk = self.kwargs['booking_pk']
+      activity_booking = get_object_or_404(ActivityBooking, pk=booking_pk)
+      context['booking'] = activity_booking  # Add the accommodation to context
+      return context
 
     def get_booking(self):
         """Retrieve the booking object based on URL parameter."""
@@ -131,8 +145,6 @@ class ActivityBookingPaymentView(LoginRequiredMixin, FormView):
             messages.error(self.request, 'Error happened, please try again')
             return redirect(self.request.META['HTTP_REFERER'])
         
-
-
 
 class ActivityReviewListView(FormView):
     model = Activity
