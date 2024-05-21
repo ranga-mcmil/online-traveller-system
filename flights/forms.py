@@ -1,17 +1,14 @@
 from django import forms
+from .models import Destination
 
 class FlightForm(forms.Form):
-    origin = forms.CharField(required=True, widget=forms.TextInput(
-        attrs={
-            'class': 'form-control',
-        }
-    ))
+    origin = forms.ModelChoiceField(queryset=Destination.objects.all(), 
+                                    empty_label=None, 
+                                    widget=forms.Select(attrs={'class': 'form-control'}))
 
-    destination = forms.CharField(required=True, widget=forms.TextInput(
-        attrs={
-            'class': 'form-control',
-        }
-    ))
+    destination = forms.ModelChoiceField(queryset=Destination.objects.all(), 
+                                        empty_label=None, 
+                                        widget=forms.Select(attrs={'class': 'form-control'}))
 
     def get_info(self):
         # Cleaned data

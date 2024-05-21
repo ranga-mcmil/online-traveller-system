@@ -62,14 +62,16 @@
             <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
 
                 {% for review in reviews %}
-                <div class="testimonial text-center slider-item">
+                    <div class="testimonial text-center slider-item">
 
-                    <blockquote>
+                        <blockquote>
 
-                        <p>&ldquo;{{review.content}}&rdquo;</p>
-                    </blockquote>
-                    <p><em>&mdash; {{review.user.get_full_name}}</em></p>
-                </div>
+                            <p>&ldquo;{{review.content}}&rdquo;</p>
+                        </blockquote>
+                        <p><em>&mdash; {{review.user.get_full_name}}</em></p>
+                    </div>
+                {% empty %}
+                    <p>No reviews found.</p>
                 {% endfor %}
 
 

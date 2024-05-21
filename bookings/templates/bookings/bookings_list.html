@@ -70,6 +70,8 @@
                           <td>{{accommodation_booking.end_date}}</td>
                           <td>{{accommodation_booking.status}}</td>
                       </tr>
+                    {% empty %}
+                      <p>No items found.</p>
                   {% endfor %}
               </tbody>
           </table>
@@ -126,7 +128,8 @@
                           <td>{{activity_booking.people}}</td>
                           <td>{{activity_booking.status}}</td>
                       </tr>
-                    
+                  {% empty %}
+                      <p>No items found.</p>
                   {% endfor %}
                   
   
@@ -183,6 +186,8 @@
                         <td>{{ flight_booking.price }}</td>
                         <td>{{flight_booking.status}}</td>
                       </tr>
+                  {% empty %}
+                    <p>No items found.</p>
                   {% endfor %}
                   
   
