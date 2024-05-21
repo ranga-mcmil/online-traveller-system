@@ -18,7 +18,7 @@ from payments.ecocash import make_payment
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.http import HttpResponseRedirect
 
 
 class ActivityListView(LoginRequiredMixin, ListView):
@@ -122,28 +122,14 @@ class ActivityBookingPaymentView(LoginRequiredMixin, FormView):
         booking = self.get_booking()
 
         try:
-            payment_status = make_payment(f'Booking ', phone_number, self.request.user.email, 1)['status']
+          redirect_url, poll_url = make_payment(f'Booking ', phone_number, self.request.user.email, 1)
+          self.request.session['data_key'] = {"poll_url": poll_url, 'booking_id': booking.pk, 'booking_type': "Activity"} 
+          return HttpResponseRedirect(redirect_url, status=302)
+
         except:
             messages.error(self.request, 'Something happened, make sure you are connected to the internet to complete Ecocash payment')
             return redirect(self.request.META['HTTP_REFERER'])
         
-        if payment_status == 'paid':
-            booking.status = "BOOKED"
-            booking.save()
-
-            Payment.objects.create(
-              amount = 0,
-              activity_booking=booking,
-              user=self.request.user
-            )
-            messages.success(self.request, "Booked successfully")
-            return redirect('activities:activity_list')
-        elif payment_status == 'sent':
-            messages.error(self.request, 'Ecocash prompt sent, could not get confirmation from user. Please try again')
-            return redirect(self.request.META['HTTP_REFERER'])
-        else:
-            messages.error(self.request, 'Error happened, please try again')
-            return redirect(self.request.META['HTTP_REFERER'])
         
 
 class ActivityReviewListView(FormView):

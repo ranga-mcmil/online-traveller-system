@@ -125,8 +125,8 @@
                           <td>{{ activity_booking.date }}</td>
                           <td>{{activity_booking.people}}</td>
                           <td>{{activity_booking.status}}</td>
-
                       </tr>
+                    
                   {% endfor %}
                   
   
@@ -144,6 +144,61 @@
   </div>
 </section>
 
+
+
+
+
+
+<section class="section blog-post-entry bg-light">
+  <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-7">
+              <h2 class="heading" data-aos="fade-up">{% trans "Flight Booking" %}</h2>
+          </div>
+      </div>
+      <div class="row">
+
+        <div class="table-responsive">
+          <table id="data-table-2" class="table table-striped thead-primary w-100 dataTable no-footer"
+              role="grid" aria-describedby="data-table-2_info" style="width: 720px;">
+              <thead>
+                  <tr role="row">
+                      <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1"
+                          colspan="1" aria-sort="ascending"
+                           style="width: 37px;">{% trans "Flight" %}
+                      </th>
+                      <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
+                          aria-label="Address: activate to sort column " style="width: 51px;">{% trans "Price" %}
+                      </th>
+                      <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
+                          aria-label="Age: activate to sort column ascending" style="width: 25px;">{% trans "Status" %}
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+  
+                  {% for flight_booking in flight_bookings %}
+                      <tr role="row" class="odd">
+                        <td class="sorting_1">{{flight_booking.id}}</td>
+                        <td>{{ flight_booking.price }}</td>
+                        <td>{{flight_booking.status}}</td>
+                      </tr>
+                  {% endfor %}
+                  
+  
+  
+              </tbody>
+          </table>
+  
+      </div>
+          
+
+          
+
+
+      </div>
+  </div>
+</section>
 
 
 

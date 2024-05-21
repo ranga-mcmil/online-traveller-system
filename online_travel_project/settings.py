@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'payments.middleware.MyMiddleware',
 ]
 
 ROOT_URLCONF = 'online_travel_project.urls'
