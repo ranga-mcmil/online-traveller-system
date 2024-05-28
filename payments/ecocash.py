@@ -2,8 +2,8 @@ from paynow import Paynow
 import random
 
 paynow = Paynow(
-    '18546', 
-    'dfb5b164-0f03-4b43-b553-0ddc9803da2a',
+    '15115', 
+    '9506d267-ce8e-4464-ab92-d1ae7a7c3c97',
     'https://www.paynow.co.zw/Payment/BillPaymentLink/?q=aWQ9MTUxODYmYW1vdW50PTEyMC4wMCZhbW91bnRfcXVhbnRpdHk9MC4wMCZsPTE%3d', 
     'http://google.com'
 )
